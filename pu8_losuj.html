@@ -8,15 +8,16 @@
     <script type="application/javascript" src="TweenMax.min.js"></script>
     <script type="application/javascript" src="Aplikacja.js" defer></script>
     <script type="application/javascript" src="pu8_losuj.js" defer></script>
+    <link href="bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="pu8_losuj.css">
     <title>Losowanie elementu spośród puli elementów</title>
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="container d-flex flex-column justify-content-center align-items-center vh-100">
         <div id="pool"></div>
         <div id="wheel"></div>
-        <div id="element"></div>
-        <div id="options"></div>
+        <div id="element" class="mt-3">Wylosowany element:</div>
     </div>
+    <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>

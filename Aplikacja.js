@@ -116,12 +116,14 @@ class Aplikacja {
             case 'PU3_sukces':
                 info = "Pomyślnie dodano nowy element do puli";
                 let elementNameNode = document.getElementById("elementName");
+                elementNameNode.classList = "input-group";
                 elementNameNode.replaceChildren();
                 let optionsNodePU3 = document.getElementById("options");
                 let btnPU3 = document.createElement("button");
-                btnPU3.innerHTML = "potwierdź";
+                btnPU3.innerHTML = "Potwierdź";
                 btnPU3.type = "button";
-                btnPU3.id = "potwierdź";
+                btnPU3.id = "Potwierdź";
+                btnPU3.classList = "btn btn-primary";
                 btnPU3.addEventListener("click", () => {
                     location.href = "./pu2_zarzadzaj.html";
                 });
@@ -138,6 +140,8 @@ class Aplikacja {
                 break;
             case 'PU4_opcje_checked':
                 info = choosenOne.name;
+                let elements = document.getElementById("elements");
+                elements.classList = "";
                 if (options) {
                     this.wybranieOpcji();
                 }
@@ -146,9 +150,10 @@ class Aplikacja {
                 info = "Pomyślnie usunięto wskazany element";
                 let optionsNodePU4 = document.getElementById("options");
                 let btnPU4 = document.createElement("button");
-                btnPU4.innerHTML = "potwierdź";
+                btnPU4.innerHTML = "Potwierdź";
                 btnPU4.type = "button";
-                btnPU4.id = "potwierdź";
+                btnPU4.id = "Potwierdź";
+                btnPU4.classList = "btn btn-primary";
                 btnPU4.addEventListener("click", () => {
                     location.href = "./pu2_zarzadzaj.html";
                 });
@@ -165,6 +170,8 @@ class Aplikacja {
                 break;
             case 'PU5_opcje_checked':
                 info = choosenOne.name;
+                let elements5 = document.getElementById("elements");
+                elements5.classList = "";
                 if (options) {
                     this.wybranieOpcji();
                 }
@@ -173,9 +180,10 @@ class Aplikacja {
                 info = "Pomyślnie skopiowano wskazany element";
                 let optionsNodePU5 = document.getElementById("options");
                 let btnPU5 = document.createElement("button");
-                btnPU5.innerHTML = "potwierdź";
+                btnPU5.innerHTML = "Potwierdź";
                 btnPU5.type = "button";
-                btnPU5.id = "potwierdź";
+                btnPU5.id = "Potwierdź";
+                btnPU5.classList = "btn btn-primary";
                 btnPU5.addEventListener("click", () => {
                     location.href = "./pu2_zarzadzaj.html";
                 });
@@ -192,7 +200,11 @@ class Aplikacja {
                 break;
             case 'PU6_opcje_checked':
                 info = choosenOne.name;
+                let elements6 = document.getElementById("elements");
+                elements6.classList = "";
                 this.podanieNazwy();
+                let elementName6 = document.getElementById("elementName");
+                elementName6.classList = "input-group mb-3";
                 if (options) {
                     this.wybranieOpcji();
                 }
@@ -200,12 +212,14 @@ class Aplikacja {
             case 'PU6_sukces':
                 info = "Pomyślnie zmodyfikowano wskazany element";
                 let elementNameNode6 = document.getElementById("elementName");
+                elementNameNode6.classList = "input-group";
                 elementNameNode6.replaceChildren();
                 let optionsNodePU6 = document.getElementById("options");
                 let btnPU6 = document.createElement("button");
                 btnPU6.innerHTML = "potwierdź";
                 btnPU6.type = "button";
                 btnPU6.id = "potwierdź";
+                btnPU6.classList = "btn btn-primary";
                 btnPU6.addEventListener("click", () => {
                     location.href = "./pu2_zarzadzaj.html";
                 });
@@ -224,6 +238,7 @@ class Aplikacja {
                 btnPU7.innerHTML = "potwierdź";
                 btnPU7.type = "button";
                 btnPU7.id = "potwierdź";
+                btnPU7.classList = "btn btn-primary";
                 btnPU7.addEventListener("click", () => {
                     location.href = "./pu2_zarzadzaj.html";
                 });
@@ -247,6 +262,7 @@ class Aplikacja {
             btn.innerHTML = option;
             btn.type = "button";
             btn.id = [option];
+            btn.classList = "btn btn-primary";
             btn.dataset.id = [option];
             btn.addEventListener("click", () => {
                 let buttons = document.getElementsByTagName("button");
@@ -269,9 +285,11 @@ class Aplikacja {
         textfield.type = "text";
         textfield.name = "name";
         textfield.id = "name";
+        textfield.classList = "form-control";
         let label = document.createElement('label');
         label.setAttribute("for", "name");
         label.innerText = "name";
+        label.classList = "input-group-text"
         elementNameNode.appendChild(label);
         elementNameNode.appendChild(textfield);
     }
@@ -287,6 +305,7 @@ class Aplikacja {
             checkbox.value = false;
             checkbox.name = element;
             checkbox.id = element + "-" + id;
+            checkbox.classList = "form-check-input";
             checkbox.addEventListener("change", () => {
                 let checkboxNodes = elementsNode.getElementsByTagName("input");
                 for(let chbox of checkboxNodes) {
