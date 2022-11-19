@@ -8,6 +8,5 @@ app.losujElement();
 function random(indicatedSegment) {
     let elementNode = document.getElementById('element');
     randomElement = indicatedSegment.text;
-    console.log(indicatedSegment.text)
     elementNode.textContent = app.wyswietlMonit('PU8_wylosowany_element');
 }

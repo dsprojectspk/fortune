@@ -11,7 +11,7 @@ class Aplikacja {
 
     losujElement() {
         const items = this.#pulaElementowLosowania;
-        const colors = ["#f82","#0bf","#fb0","#0fb","#b0f","#f0b","#bf0"];
+        const colors = ["#eae56f","#89f26e","#7de6ef","#e7706f"];
         let k = items.length;
         if (k > 0) {
             let wheel = document.getElementById("wheel");
@@ -25,13 +25,9 @@ class Aplikacja {
             let segments = [];
             for (let n = 1; n <= k; n++) {
                 let segment = new Map();
-                let c = n;
-                if (n > colors.length) {
-                    c = n - colors.length;
-                } else {
-                    c = n;
-                }
+                let c = colors.length - (n % colors.length);
                 segment["fillStyle"] = colors[c-1];
+                segment["textFillStyle"] = "#222";
                 segment["text"] = items[n-1];
                 segments.push(segment);
             }
@@ -42,7 +38,7 @@ class Aplikacja {
                 'outerRadius'  : 212,       // The size of the wheel.
                 'centerX'      : 217,       // Used to position on the background correctly.
                 'centerY'      : 219,
-                'textFontSize' : 28,        // Font size.
+                'textFontSize' : 22,        // Font size.
                 'segments'     : segments,  // Definition of all the segments.
                 'animation' :               // Definition of the animation
                 {
