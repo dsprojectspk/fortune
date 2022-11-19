@@ -4,4 +4,10 @@ let elementNode = document.getElementById('element');
 const app = new Aplikacja();
 poolNode.textContent = app.wyswietlMonit('PU8_lista_dostepnych_elementow');
 app.losujElement();
-elementNode.textContent = app.wyswietlMonit('PU8_wylosowany_element');
+
+function random(indicatedSegment) {
+    let elementNode = document.getElementById('element');
+    randomElement = indicatedSegment.text;
+    console.log(indicatedSegment.text)
+    elementNode.textContent = app.wyswietlMonit('PU8_wylosowany_element');
+}

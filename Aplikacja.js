@@ -11,7 +11,51 @@ class Aplikacja {
 
     losujElement() {
         const items = this.#pulaElementowLosowania;
-        randomElement = items[Math.floor(Math.random()*items.length)];
+        const colors = ["#f82","#0bf","#fb0","#0fb","#b0f","#f0b","#bf0"];
+        let k = items.length;
+        if (k > 0) {
+            let wheel = document.getElementById("wheel");
+            let canvas = document.createElement("canvas");
+            canvas.id = "canvas";
+            canvas.width = "434";
+            canvas.height = "438";
+            canvas.innerText = "Canvas not supported, use another browser.";
+            wheel.appendChild(canvas);
+            wheel.classList = "the_wheel";
+            let segments = [];
+            for (let n = 1; n <= k; n++) {
+                let segment = new Map();
+                let c = n;
+                if (n > colors.length) {
+                    c = n - colors.length;
+                } else {
+                    c = n;
+                }
+                segment["fillStyle"] = colors[c-1];
+                segment["text"] = items[n-1];
+                segments.push(segment);
+            }
+            segments = JSON.parse(JSON.stringify(segments));
+
+            let theWheel = new Winwheel({
+                'numSegments'  : k,         // Number of segments
+                'outerRadius'  : 212,       // The size of the wheel.
+                'centerX'      : 217,       // Used to position on the background correctly.
+                'centerY'      : 219,
+                'textFontSize' : 28,        // Font size.
+                'segments'     : segments,  // Definition of all the segments.
+                'animation' :               // Definition of the animation
+                {
+                    'type'     : 'spinToStop',
+                    'duration' : 5,
+                    'spins'    : 8,
+                    'callbackFinished' : random
+                }
+            });
+
+            // Begin the spin animation by calling startAnimation on the wheel object.
+            theWheel.startAnimation();
+        }
     }
 
     zarzadzajElementami() {
@@ -75,14 +119,6 @@ class Aplikacja {
                 break;
             case 'PU3_sukces':
                 info = "Pomyślnie dodano nowy element do puli";
-                //let newElementName = document.getElementById("name").value;
-                //let elementNameNode = document.getElementById("elementName");
-                //let span = document.createElement("span");
-                //span.textContent = "Element => " + newElementName;
-                //span.id = "newElementName";
-                //elementNameNode.replaceChildren(span);
-                //let textfield = document.getElementById("name");
-                //textfield.disabled = true;
                 let elementNameNode = document.getElementById("elementName");
                 elementNameNode.replaceChildren();
                 let optionsNodePU3 = document.getElementById("options");
@@ -91,7 +127,6 @@ class Aplikacja {
                 btnPU3.type = "button";
                 btnPU3.id = "potwierdź";
                 btnPU3.addEventListener("click", () => {
-                    //console.log("PRZEJSCIE DO PU#2 TUTAJ");
                     location.href = "./pu2_zarzadzaj.html";
                 });
                 optionsNodePU3.replaceChildren(btnPU3);
@@ -119,7 +154,6 @@ class Aplikacja {
                 btnPU4.type = "button";
                 btnPU4.id = "potwierdź";
                 btnPU4.addEventListener("click", () => {
-                    //console.log("PRZEJSCIE DO PU#2 TUTAJ");
                     location.href = "./pu2_zarzadzaj.html";
                 });
                 optionsNodePU4.replaceChildren(btnPU4);
@@ -147,7 +181,6 @@ class Aplikacja {
                 btnPU5.type = "button";
                 btnPU5.id = "potwierdź";
                 btnPU5.addEventListener("click", () => {
-                    //console.log("PRZEJSCIE DO PU#2 TUTAJ");
                     location.href = "./pu2_zarzadzaj.html";
                 });
                 optionsNodePU5.replaceChildren(btnPU5);
@@ -178,7 +211,6 @@ class Aplikacja {
                 btnPU6.type = "button";
                 btnPU6.id = "potwierdź";
                 btnPU6.addEventListener("click", () => {
-                    //console.log("PRZEJSCIE DO PU#2 TUTAJ");
                     location.href = "./pu2_zarzadzaj.html";
                 });
                 optionsNodePU6.replaceChildren(btnPU6);
@@ -197,7 +229,6 @@ class Aplikacja {
                 btnPU7.type = "button";
                 btnPU7.id = "potwierdź";
                 btnPU7.addEventListener("click", () => {
-                    //console.log("PRZEJSCIE DO PU#2 TUTAJ");
                     location.href = "./pu2_zarzadzaj.html";
                 });
                 optionsNodePU7.replaceChildren(btnPU7);
@@ -261,7 +292,7 @@ class Aplikacja {
             checkbox.name = element;
             checkbox.id = element + "-" + id;
             checkbox.addEventListener("change", () => {
-                let checkboxNodes = document.getElementsByTagName("input");
+                let checkboxNodes = elementsNode.getElementsByTagName("input");
                 for(let chbox of checkboxNodes) {
                     if (checkbox.checked) {
                         if (chbox.id != checkbox.id) {
@@ -280,14 +311,6 @@ class Aplikacja {
             div.appendChild(checkbox);
             elementsNode.appendChild(div);
         });
-        
     }
-
-    // DEBUG ONLY
-    pulaElementowLosowania() {
-        return this.#pulaElementowLosowania;
-    }
-    // DEBUG ONLY
-
 }
 

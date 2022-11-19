@@ -21,7 +21,6 @@ function makeActionBasedOnChoosedOption() {
             messageNode.textContent = app.wyswietlMonit('PU7_sukces');
             return
         } else {
-            //console.log(" => Pwrót do PU2")
             location.href = "./pu2_zarzadzaj.html";
             return
         }

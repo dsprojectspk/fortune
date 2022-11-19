@@ -24,7 +24,6 @@ function makeActionBasedOnChoosedOption() {
                     messageNode.textContent = app.wyswietlMonit('PU3_sukces');
                     break;
                 case 'Anuluj':
-                    //console.log(" => Pwrót do PU2");
                     location.href = "./pu2_zarzadzaj.html";
                     break;
             }

@@ -54,7 +54,6 @@ function makeActionBasedOnChoosedOption() {
         if (toogledButton.dataset.choosed == "true") {
             switch (button.id) {
                 case 'Anuluj':
-                    //console.log(" => Pwrót do PU2");
                     location.href = "./pu2_zarzadzaj.html";
                     break;
             }
@@ -75,7 +74,6 @@ function makeActionBasedOnChoosedOption2() {
                     messageNode.textContent = app.wyswietlMonit('PU5_sukces');
                     break;
                 case 'Anuluj':
-                    //console.log(" => Pwrót do PU5");
                     location.href = "./pu5_kopiuj.html";
                     break;
             }
